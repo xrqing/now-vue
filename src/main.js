@@ -6,6 +6,17 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
+// 全局样式
+import '@/assets/css/global.css'
+
+// 导入样式
+import '@/assets/fonts/iconfont.css'
+
+// 导入axios
+import axios from 'axios'
+axios.defaults.baseURL = 'http://localhost:1010/'
+Vue.prototype.$http = axios
+
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 
