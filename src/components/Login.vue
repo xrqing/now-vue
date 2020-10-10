@@ -14,7 +14,7 @@
           <el-input
             prefix-icon="iconfont icon-user"
             v-model="loginForm.username"
-            placeholder="请输入登录用户名"
+            placeholder="请输入登录名称"
           ></el-input>
         </el-form-item>
         <el-form-item prop="password">
