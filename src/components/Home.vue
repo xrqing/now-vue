@@ -84,7 +84,6 @@ export default {
       const { data: res } = await this.$http.get('/menu/menuList')
       if (res.code !== 200) return this.$message.error(res.data.message)
       this.menuList = res.data
-      console.log(res)
     },
 
     // 菜单折叠与展开

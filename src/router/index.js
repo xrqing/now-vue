@@ -4,6 +4,8 @@ import Login from '@/components/Login.vue'
 import Home from '@/components/Home.vue'
 import Welcome from '@/components/Welcome.vue'
 import Admin from '@/components/admin/admin.vue'
+import Rights from '@/components/power/Rights.vue'
+import Menu from '@/components/menu/Menu.vue'
 
 Vue.use(Router)
 
@@ -33,6 +35,16 @@ const router = new Router({
           name: 'admin',
           path: '/admin/list',
           component: Admin
+        },
+        {
+          name: 'rights',
+          path: '/rights/list',
+          component: Rights
+        },
+        {
+          name: 'menu',
+          path: '/menu/list',
+          component: Menu
         }
       ]
     }

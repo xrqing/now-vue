@@ -41,6 +41,17 @@
             round
           ></el-button>
         </el-tooltip>
+
+        <!--刷新-->
+        <el-tooltip class="item" effect="dark" content="刷新" placement="top">
+          <el-button
+            size="small"
+            type="primary"
+            round
+            icon="el-icon-refresh"
+            @click="refresh()"
+          />
+        </el-tooltip>
       </div>
 
       <!--列表-->
@@ -50,12 +61,14 @@
           prop="id"
           align="center"
           width="70"
+          fixed
         ></el-table-column>
         <el-table-column
           label="姓名"
           prop="username"
           align="center"
           width="130"
+          fixed
         ></el-table-column>
         <el-table-column
           label="手机号"
@@ -102,8 +115,15 @@
           prop="roleName"
           align="center"
           width="130"
-        ></el-table-column>
-        <el-table-column label="操作" align="center" width="200">
+        >
+          <template slot-scope="scope">
+            <el-tag size="small" v-if="scope.row.roleName === null">{{
+              scope.row.roleName
+            }}</el-tag>
+            <el-tag size="small" v-else>{{ scope.row.roleName }}</el-tag>
+          </template></el-table-column
+        >
+        <el-table-column label="操作" align="center" width="200" fixed="right">
           <template slot-scope="scope">
             <el-tooltip
               effect="dark"
@@ -334,7 +354,6 @@ export default {
       }
       this.adminList = res.data.list
       this.total = res.data.total
-      console.log(res)
     },
 
     // 监听pageSize
@@ -453,6 +472,12 @@ export default {
       }
       this.$message.success(res.message)
       this.getAdminList()
+    },
+
+    // 刷新
+    async refresh () {
+      this.getAdminList()
+      return this.$message.success('刷新成功')
     }
   }
 }
